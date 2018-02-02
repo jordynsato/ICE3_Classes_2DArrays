@@ -4,14 +4,13 @@ import java.util.Scanner;
 /**
  * This class takes in user input to get a team's roster and each player's statistics.
  * 
- * @author Jordyn
+ * Last update: 2/2/18 at 3:33 PM
  *
  */
 
 public class Driver {
 
 	//Fields
-	private static Team t;
 	private static ArrayList<Player> roster;
 	
 	/**
@@ -42,7 +41,7 @@ public class Driver {
 		
 		//Checking for user input on points
 		do {
-			System.out.println("Points made: ");
+			System.out.println("Points: ");
 			try {
 				int points = 0;
 				if(scan.hasNextLine()) {
@@ -64,6 +63,7 @@ public class Driver {
 		
 		//Checking for user input on rebounds
 		do {
+			System.out.println("Rebounds: ");
 			try {
 				int rebounds = 0;
 				if(scan.hasNextLine()) {
@@ -85,6 +85,7 @@ public class Driver {
 		
 		//Checking for user input on assists
 		do {
+			System.out.println("Assists: ");
 			try {
 				int assists = 0;
 				if(scan.hasNextLine()) {
@@ -103,16 +104,22 @@ public class Driver {
 				continue;
 			}
 		} while(rerunAssists);
+		
 		return stats;
 	}
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		boolean rerunFlag = true;
+		Team t;
 		System.out.println("Welcome to MaxPreps!");
 		
 		do {
 			int maxRoster = 0;
+			
+			//Gets the name for the team.
+			System.out.println("What is the team name?");
+			String teamName = scan.next();
 			
 			//Asks and validates the user input on how many players are on the team.
 			System.out.println("How many players are on the roster?");
@@ -141,7 +148,7 @@ public class Driver {
 					p.addGame(addStats(scan));
 				}
 			}
-			t = new Team(roster);
+			t = new Team(roster, teamName);
 			
 			//Prints out each player's and team's statistics.
 			System.out.println(t.toString());
