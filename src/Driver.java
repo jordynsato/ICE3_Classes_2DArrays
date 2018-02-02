@@ -11,19 +11,19 @@ import java.util.Scanner;
 public class Driver {
 
 	//Fields
-	private static ArrayList<Player> roster;
+	private static Player[] roster;
 	
 	/**
 	 * This method adds a player to the roster.
 	 * 
 	 * @param scan A Scanner that will be used to print to the console.
 	 */
-	public static void addPlayer(Scanner scan) {
+	public static void addPlayer(Scanner scan, int index) {
 		String name;
 		System.out.println("Please enter in the name of the player: ");
 		name = scan.nextLine();
 		Player p = new Player(name);
-		roster.add(p);
+		roster[index] = p;
 	}
 	
 	/**
@@ -131,7 +131,7 @@ public class Driver {
 						scan.next();
 						continue;
 					}
-					roster = new ArrayList<Player>(maxRoster);
+					roster = new Player[maxRoster];
 				}
 			} catch(Exception e) {
 				System.out.println("Please enter in a valid number of players.");
@@ -141,7 +141,7 @@ public class Driver {
 			
 			//First for loop that cycles through each player to get their name.
 			for(int p = 0; p < maxRoster; p++) {
-				addPlayer(scan);
+				addPlayer(scan, p);
 				//Second inner for loop that cycles through 3 games to add to each player for stats.
 				for(int g = 0; g < 3; g++) {
 					System.out.println("Please enter in the statistics for each player for the next 3 games.");
