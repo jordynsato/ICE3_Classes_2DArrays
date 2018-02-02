@@ -127,7 +127,7 @@ public class Team {
 	 */
 	public String toString() {
 		String toString = "";
-		toString += "Team: "+ name + "\nTeam Averages: \n\tPts: "
+		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
 				+ teamAvgPts +"\n\tReb: " + teamAvgReb + "\n\tAst: "
 				+teamAvgAst +"\n";
 		for (int i = 0; i< players.length; i++) {
