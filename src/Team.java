@@ -1,6 +1,10 @@
 /**
  * 
+<<<<<<< HEAD
  * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
+=======
+ * @author Taro: Serena Ing, Nana Mimura, Jordyn Sato
+>>>>>>> 56f1028b63025f53b90742bf947b015d88e8133a
  * This class defines the Team
  * We have the team name as well as the players on the team listed in an array.
  * This class also calculates the average team player's points, rebounds, and assists.
