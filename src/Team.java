@@ -90,18 +90,10 @@ public class Team {
 		teamAvgPts/=players.length;
 		teamAvgPts = (Math.round(teamAvgPts*100))/100.0;
 		return teamAvgPts;
-		//System.out.println(teamAvgPts);
 		
 	}
 	
-	//public double getTeamAvgPts() {
-	//	setAvgPts();
-	//	return teamAvgPts;
-	//}
-	
-	/*
-	 * Team average for rebounds mutator/access methods
-	 * calculations are done inside the mutator
+	/*calculations are done in the accessor methods
 	 */
 	public double getTeamAvgReb() {
 		double teamAvgReb = 0;
@@ -113,14 +105,6 @@ public class Team {
 		return teamAvgReb;
 	}
 	
-	//public double getTeamAvgReb() {
-	//	setAvgReb();
-	//	return teamAvgReb;
-	//}
-	/*
-	 * Team average for assists mutator/access methods
-	 * calculations are done inside the mutator
-	 */
 	public double getTeamAvgAst() {
 		double teamAvgAst = 0;
 		for(int i = 0; i < players.length; i++) {
@@ -131,15 +115,10 @@ public class Team {
 		return teamAvgAst;
 	}
 	
-	//public double getTeamAvgAst() {
-	//	setAvgAst();
-	//	return teamAvgAst;
-	//}
 	
 	/*
 	 * toString method for Team
 	 */
-
 	public String toString() {
 		String toString = "";
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
