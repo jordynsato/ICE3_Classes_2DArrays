@@ -83,7 +83,7 @@ public class Team {
 	 * calculations are done inside the mutator method
 	 */
 	public double getTeamAvgPts() {
-		double teamAvgPts = 0;
+		teamAvgPts = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgPts+=players[i].getPlayerAvgPts();
 		}
@@ -96,7 +96,7 @@ public class Team {
 	/*calculations are done in the accessor methods
 	 */
 	public double getTeamAvgReb() {
-		double teamAvgReb = 0;
+		teamAvgReb = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgReb+=players[i].getPlayerAvgReb();
 		}
@@ -106,7 +106,7 @@ public class Team {
 	}
 	
 	public double getTeamAvgAst() {
-		double teamAvgAst = 0;
+		teamAvgAst = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgAst+=players[i].getPlayerAvgAst();
 		}
