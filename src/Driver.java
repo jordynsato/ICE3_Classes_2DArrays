@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * This class takes in user input to get a team's roster and each player's statistics.
  * 
- * Last update: 2/2/18 at 3:33 PM
- *
+ * Last update: 2/2/18 at 4:25 PM
+ * @author Jordyn
  */
 public class Driver {
 
@@ -36,6 +36,7 @@ public class Driver {
 		boolean rerunPoints = true;
 		boolean rerunRebounds = true;
 		boolean rerunAssists = true;
+		scan.next();
 		
 		//Checking for user input on points
 		do {
@@ -141,7 +142,7 @@ public class Driver {
 			for(int p = 0; p < maxRoster; p++) {
 				addPlayer(scan, p);
 				//Second inner for loop that cycles through 3 games to add to each player for stats.
-				for(int g = 0; g < 3; g++) {
+				for(int g = 0; g < 3 && scan.hasNext(); g++) {
 					System.out.println("Please enter in the statistics for each player for the next 3 games.");
 					roster[p].addGame(g, addStats(scan));
 				}
