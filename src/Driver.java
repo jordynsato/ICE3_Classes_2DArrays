@@ -126,7 +126,7 @@ public class Driver {
 			try {
 				if(scan.hasNextLine()) {
 					maxRoster = scan.nextInt();
-					if(maxRoster != 6 || maxRoster != 7) {
+					if(maxRoster != 6 && maxRoster != 7) {
 						System.out.println("You can only have 6 or 7 players on your team, please try again.");
 						scan.next();
 						continue;
@@ -145,7 +145,7 @@ public class Driver {
 				//Second inner for loop that cycles through 3 games to add to each player for stats.
 				for(int g = 0; g < 3; g++) {
 					System.out.println("Please enter in the statistics for each player for the next 3 games.");
-					p.addGame(addStats(scan));
+					roster[p].addGame(g, addStats(scan));
 				}
 			}
 			t = new Team(roster, teamName);
