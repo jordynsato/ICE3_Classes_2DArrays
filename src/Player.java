@@ -97,6 +97,7 @@ public class Player {
 		return playerAvgAst;
 	}
 	
+	
 	/**
 	 * This method adds another game's worth of statistics into the player's overall statistics.
 	 * @param gameNumber which game number (out of 3 games) that the statistics are coming from
@@ -113,7 +114,7 @@ public class Player {
 	 * during the 3 games.
 	 */
 	public String toString() {
-		return name + " has made an average of " + playerAvgPoints + " points, " + playerAvgReb + " rebounds, and " +
-				playerAvgAst + " assists.";
+		return name + " has made an average of " + getPlayerAvgPts() + " points, " + getPlayerAvgReb() + " rebounds, and " +
+				getPlayerAvgAst() + " assists.";
 	}
 }
