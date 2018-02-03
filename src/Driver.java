@@ -3,26 +3,13 @@ import java.util.Scanner;
 /**
  * This class takes in user input to get a team's roster and each player's statistics.
  * 
- * Last update: 2/2/18 at 4:25 PM
+ * Last update: 2/2/18 at 5:38 PM
  * @author Jordyn
  */
 public class Driver {
 
 	//Fields
 	private static Player[] roster;
-	
-	/**
-	 * This method adds a player to the roster.
-	 * 
-	 * @param scan A Scanner that will be used to print to the console.
-	 */
-	public static void addPlayer(Scanner scan, int index) {
-		String name;
-		System.out.println("Please enter in the name of the player: ");
-		name = scan.nextLine();
-		Player p = new Player(name);
-		roster[index] = p;
-	}
 	
 	/**
 	 * This method returns an int array of statistics for one player's game by asking for user input on points,
@@ -36,7 +23,7 @@ public class Driver {
 		boolean rerunPoints = true;
 		boolean rerunRebounds = true;
 		boolean rerunAssists = true;
-		scan.next();
+		//scan.next();
 		
 		//Checking for user input on points
 		do {
@@ -138,15 +125,24 @@ public class Driver {
 				continue;
 			}
 			
-			//First for loop that cycles through each player to get their name.
+			//For loop that cycles through each player to get their name.
 			for(int p = 0; p < maxRoster; p++) {
-				addPlayer(scan, p);
-				//Second inner for loop that cycles through 3 games to add to each player for stats.
-				for(int g = 0; g < 3 && scan.hasNext(); g++) {
-					System.out.println("Please enter in the statistics for each player for the next 3 games.");
-					roster[p].addGame(g, addStats(scan));
+				System.out.printf("Please enter in player %d's name: \n", (p+1));
+				String name = scan.next();
+				Player player = new Player(name);
+				roster[p] = player;
+			}
+			
+			//For loop that cycles through each player to get stats for 3 games.
+			for(Player p : roster) {
+				for(int g = 0; g < 3; g++) {
+					System.out.println("Please enter in the statistics of each player's game.");
+					System.out.printf("Stats for game " + (g + 1) + " for %s:\n", p.getName());
+					int[] stats = addStats(scan);
+					p.addGame(g, stats);
 				}
 			}
+			
 			t = new Team(roster, teamName);
 			
 			//Prints out each player's and team's statistics.
