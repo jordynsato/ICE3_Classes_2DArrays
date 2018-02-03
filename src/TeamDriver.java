@@ -28,5 +28,7 @@ public class TeamDriver {
 		Team taro = new Team (roster, "Taro");
 		System.out.println(taro.getPlayerAtPos(2));
 		System.out.println(taro.toString());
+		
+		System.out.println(taro.toString());
 	}
 }
