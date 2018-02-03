@@ -13,11 +13,12 @@ public class TeamDriver {
 		jordyn.addGame(0,game1);
 		jordyn.addGame(1,game2);
 		jordyn.addGame(2,game3);
-		System.out.println(jordyn.getPlayerAvgPts());
+		System.out.println("Jordyn points: " + jordyn.getPlayerAvgPts());
 		System.out.println(jordyn.toString());
+		
 		Player[]roster = {nana, jordyn};
 		Team taro = new Team (roster, "Taro");
-		
-		//taro.toString();
+		System.out.println(taro.getPlayerAtPos(2));
+		System.out.println(taro.toString());
 	}
 }

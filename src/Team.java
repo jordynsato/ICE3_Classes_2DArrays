@@ -20,6 +20,7 @@ public class Team {
 		name = nam;
 		teamSize = play.length;
 		players = new Player[teamSize];
+		setPlayers(play);
 		teamAvgPts = 0.0;
 		teamAvgReb = 0.0;
 		teamAvgAst = 0.0;
@@ -54,6 +55,15 @@ public class Team {
 		return players;
 	}
 	
+	public Player getPlayerAtPos(int index) {
+		if ( index <= teamSize && index>0) {
+			index-=1;
+			return players[index];
+		}
+		else 
+			return players[0];
+	}
+	
 	public void setPlayers(Player[]play) {
 		if (play.length == players.length) {
 			Player temp;
@@ -78,7 +88,8 @@ public class Team {
 			teamAvgPts+=players[i].getPlayerAvgPts();
 		}
 		teamAvgPts/=players.length;
-		System.out.println(teamAvgPts);
+		teamAvgPts = (Math.round(teamAvgPts*100))/100.0;
+		//System.out.println(teamAvgPts);
 		
 	}
 	
@@ -97,7 +108,7 @@ public class Team {
 			teamAvgReb+=players[i].getPlayerAvgReb();
 		}
 		teamAvgReb/=players.length;
-		System.out.println(teamAvgReb);
+		teamAvgReb = (Math.round(teamAvgReb*100))/100.0;
 	}
 	
 	public double getTeamAvgReb() {
@@ -114,7 +125,7 @@ public class Team {
 			teamAvgAst+=players[i].getPlayerAvgAst();
 		}
 		teamAvgAst/=players.length;
-		System.out.println(teamAvgAst);
+		teamAvgAst = (Math.round(teamAvgAst*100.0))/100.0;
 	}
 	
 	public double getTeamAvgAst() {
@@ -131,9 +142,10 @@ public class Team {
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
 				+ getTeamAvgPts() +"\n\tReb: " + getTeamAvgReb() + "\n\tAst: "
 				+ getTeamAvgAst() +"\n";
-		for (int i = 0; i< players.length; i++) {
-			toString += players[i].toString() + "\n";
-		}
+		//for (int i = 0; i< players.length; i++) {
+			//toString += players[i].toString() + "\n";
+		//}
+		toString = ""+ getTeamAvgPts();
 			return toString;
 	}
 }//end Team
