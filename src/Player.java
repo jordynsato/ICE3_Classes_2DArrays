@@ -2,7 +2,7 @@
  * The Player class creates a Player object and its methods to be used in the Driver and Team classes.
  * 
  * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
- * @since 2/2/18 4:00pm
+ * @since 2/2/18 5:00pm
  */
 public class Player {
 
@@ -10,11 +10,14 @@ public class Player {
 	private String name;
 	private double playerAvgPoints, playerAvgReb, playerAvgAst;
 	
+	/**
+	 * These are constants that were created in order to get rid of magic numbers in the code.
+	 */
 	private static final double NUM_OF_GAMES = 3.0;
 	private static final int PTS_COL = 0, REB_COL = 1, AST_COL = 2, GAME_1 = 0, GAME_2 = 1, GAME_3 = 2;
 	
 	/**
-	 * The default constructor for a Player object that sets the Player's name to an empty String and the Player's
+	 * This is the default constructor for a Player object that sets the Player's name to an empty String and the Player's
 	 * statistics to an empty 3x3 2D array to hold the Player's statistics.
 	 */
 	public Player() {
@@ -23,7 +26,7 @@ public class Player {
 	}
 	
 	/**
-	 * A constructor for a Player object that creates a new Player with a name and an empty 3x3 2D array to hold the
+	 * This is a constructor for a Player object that creates a new Player with a name and an empty 3x3 2D array to hold the
 	 * Player's statistics.
 	 * @param name what the Player's name will be
 	 */
@@ -33,7 +36,7 @@ public class Player {
 	}
 	
 	/**
-	 * A constructor for a Player object that creates a new Player with a name and a 3x3 2D array with statistics from 3
+	 * This is a constructor for a Player object that creates a new Player with a name and a 3x3 2D array with statistics from 3
 	 * games.
 	 * @param name what the Player's name will be
 	 * @param stats the Player's statistics from 3 game
