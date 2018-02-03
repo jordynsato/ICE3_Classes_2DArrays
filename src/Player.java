@@ -68,32 +68,41 @@ public class Player {
 	}
 	
 	/**
-	 * This method calculates the Player's average points from 3 games and returns this statistic as a double.
+	 * This method calculates the Player's average points from 3 games and returns this statistic as a double, rounded
+	 * to 2 decimal places.
 	 * @return the sum of the points the Player made during game 1, game 2, and game 3 divided by 3.0 (the number of games
-	 * 			played)
+	 * 			played) which is then multiplied by 100, rounded, and divided by 100 in order to round it to 2
+	 * 			decimal places
 	 */
 	public double getPlayerAvgPts() {
-		playerAvgPoints = (stats[GAME_1][PTS_COL] + stats[GAME_2][PTS_COL] + stats[GAME_3][PTS_COL]) / NUM_OF_GAMES;
+		playerAvgPoints = (stats[GAME_1][PTS_COL] + stats[GAME_2][PTS_COL] + stats[GAME_3][PTS_COL]) / NUM_OF_GAMES * 100;
+		playerAvgPoints = Math.round(playerAvgPoints) / 100.0;
 		return playerAvgPoints;
 	}
 	
 	/**
-	 * This method calculates the Player's average rebounds from 3 games and returns this statistic as a double.
+	 * This method calculates the Player's average rebounds from 3 games and returns this statistic as a double, rounded
+	 * to 2 decimal places.
 	 * @return the sum of the rebounds the Player made during game 1, game 2, and game 3 divided by 3.0 (the number of
-	 * 			games played)
+	 * 			games played) which is then multiplied by 100, rounded, and divided by 100 in order to round it to 2
+	 * 			decimal places
 	 */
 	public double getPlayerAvgReb() {
-		playerAvgReb = (stats[GAME_1][REB_COL] + stats[GAME_2][REB_COL] + stats[GAME_3][REB_COL]) / NUM_OF_GAMES;
+		playerAvgReb = (stats[GAME_1][REB_COL] + stats[GAME_2][REB_COL] + stats[GAME_3][REB_COL]) / NUM_OF_GAMES * 100;
+		playerAvgReb = Math.round(playerAvgReb) / 100.0;
 		return playerAvgReb;
 	}
 	
 	/**
-	 * This method calculates the Player's average assists from 3 games and returns this statistic as a double.
+	 * This method calculates the Player's average assists from 3 games and returns this statistic as a double, rounded
+	 * to 2 decimal places.
 	 * @return the sum of the assists the Player made during game 1, game 2, and game 3 divided by 3.0 (the number of games
-	 * 			played)
+	 * 			played) which is then multiplied by 100, rounded, and divided by 100 in order to round it to 2
+	 * 			decimal places
 	 */
 	public double getPlayerAvgAst() {
-		playerAvgAst = (stats[GAME_1][AST_COL] + stats[GAME_2][AST_COL] + stats[GAME_3][AST_COL]) / NUM_OF_GAMES;
+		playerAvgAst = (stats[GAME_1][AST_COL] + stats[GAME_2][AST_COL] + stats[GAME_3][AST_COL]) / NUM_OF_GAMES * 100;
+		playerAvgAst = Math.round(playerAvgAst) / 100.0;
 		return playerAvgAst;
 	}
 	
