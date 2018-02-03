@@ -140,11 +140,15 @@ public class Driver {
 			
 			//First for loop that cycles through each player to get their name.
 			for(int p = 0; p < maxRoster; p++) {
+				System.out.println("Please enter in the statistics for each player for the next 3 games.");
 				addPlayer(scan, p);
 				//Second inner for loop that cycles through 3 games to add to each player for stats.
 				for(int g = 0; g < 3 && scan.hasNext(); g++) {
-					System.out.println("Please enter in the statistics for each player for the next 3 games.");
-					roster[p].addGame(g, addStats(scan));
+					System.out.println("Stats for game " + (g + 1) + ":");
+					int[] stats = addStats(scan);
+					roster[p].addGame(g, stats);
+					//scan.next();
+					//System.out.println(scan.hasNext());
 				}
 			}
 			t = new Team(roster, teamName);
