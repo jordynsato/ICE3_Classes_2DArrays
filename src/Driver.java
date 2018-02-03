@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * This class takes in user input to get a team's roster and each player's statistics.
  * 
- * Last update: 2/2/18 at 5:38 PM
+ * Last update: 2/2/18 at 6:28 PM
  * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
  */
 public class Driver {
@@ -23,7 +23,6 @@ public class Driver {
 		boolean rerunPoints = true;
 		boolean rerunRebounds = true;
 		boolean rerunAssists = true;
-		//scan.next();
 
 		//Checking for user input on points
 		do {
