@@ -100,31 +100,37 @@ public class Driver {
 		Team t;
 		System.out.println("Welcome to MaxPreps!");
 
-		//Gets the name for the team.
-		System.out.println("What is the team name?");
-		String teamName = scan.next();
-
 		do {
-			int maxRoster = 0;
+			//Gets the name for the team.
+			String teamName = "";
+			System.out.println("What is the team name?");
+			if(scan.hasNextLine()) {
+				teamName = scan.nextLine();
+			}		
 			
 			//Asks and validates the user input on how many players are on the team.
-			try {
-				System.out.println("How many players are on the roster?");
-				if(scan.hasNextLine()) {
-					maxRoster = scan.nextInt();
-					if(maxRoster != 6 && maxRoster != 7) {
-						System.out.println("You can only have 6 or 7 players on your team, please try again.");
-						scan.nextLine();
-						continue;
+			int maxRoster = 0;
+			boolean rerunRoster = true;
+			do {
+				try {
+					System.out.println("How many players are on the roster?");
+					if(scan.hasNextLine()) {
+						maxRoster = scan.nextInt();
+						if(maxRoster != 6 && maxRoster != 7) {
+							System.out.println("You can only have 6 or 7 players on your team, please try again.");
+							scan.nextLine();
+							continue;
+						}
+						rerunRoster = false;
+						roster = new Player[maxRoster];
 					}
-					roster = new Player[maxRoster];
+				} catch(Exception e) {
+					System.out.println("Please enter in a valid number of players.");
+					scan.nextLine();
+					continue;
 				}
-			} catch(Exception e) {
-				System.out.println("Please enter in a valid number of players.");
-				scan.nextLine();
-				continue;
-			}
-
+			} while(rerunRoster);
+			
 			//For loop that cycles through each player to get their name.
 			for(int p = 0; p < maxRoster; p++) {
 				System.out.printf("Please enter in player %d's name: \n", (p+1));
@@ -155,6 +161,7 @@ public class Driver {
 				rerunFlag = false;
 				System.out.println("Thank you for using this program!");
 			}
+			scan.nextLine();
 		} while(rerunFlag);
 		scan.close();
 	}
