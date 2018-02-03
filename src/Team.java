@@ -1,6 +1,6 @@
 /**
  * 
- * @author Taro: Serena Ing, Nana Mimura, Jordyn Sato
+ * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
  * This class defines the Team
  * We have the team name as well as the players on the team listed in an array.
  * This class also calculates the average team player's points, rebounds, and assists.
@@ -125,11 +125,12 @@ public class Team {
 	/*
 	 * toString method for Team
 	 */
+
 	public String toString() {
 		String toString = "";
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
-				+ teamAvgPts +"\n\tReb: " + teamAvgReb + "\n\tAst: "
-				+teamAvgAst +"\n";
+				+ getTeamAvgPts() +"\n\tReb: " + getTeamAvgReb() + "\n\tAst: "
+				+ getTeamAvgAst() +"\n";
 		for (int i = 0; i< players.length; i++) {
 			toString += players[i].toString() + "\n";
 		}
