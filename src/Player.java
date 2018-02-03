@@ -1,7 +1,7 @@
 /**
  * The Player class creates a Player object and its methods to be used in the Driver and Team classes.
  * 
- * @author nana_
+ * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
  * @since 2/2/18 4:00pm
  */
 public class Player {
