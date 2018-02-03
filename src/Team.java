@@ -125,14 +125,18 @@ public class Team {
 	/*
 	 * toString method for Team
 	 */
+
 	public String toString() {
+		setAvgPts();
+		setAvgReb();
+		setAvgAst();
 		String toString = "";
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
 				+ teamAvgPts +"\n\tReb: " + teamAvgReb + "\n\tAst: "
 				+teamAvgAst +"\n";
-		for (int i = 0; i< players.length; i++) {
-			toString += players[i].toString() + "\n";
-		}
+		//for (int i = 0; i< players.length; i++) {
+			//toString += players[i].toString() + "\n";
+		//}
 			return toString;
 	}
 }//end Team
