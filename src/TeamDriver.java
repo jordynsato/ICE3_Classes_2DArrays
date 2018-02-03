@@ -1,9 +1,10 @@
 
 public class TeamDriver {
 	public static void main (String[]args) {
-		int teamSize = 2;
+		int teamSize = 3;
 		Player nana = new Player("Nana");
 		Player jordyn = new Player("Jordyn");
+		Player serena = new Player("Serena");
 		
 		System.out.println(nana.toString());
 		int[]game1 = {9,3,4};
@@ -16,7 +17,14 @@ public class TeamDriver {
 		System.out.println("Jordyn points: " + jordyn.getPlayerAvgPts());
 		System.out.println(jordyn.toString());
 		
-		Player[]roster = {nana, jordyn};
+		int[]game4 = {9,3,4};
+		int[]game5 = {0,0,0};
+		int[]game6 = {5, 6, 7};
+		serena.addGame(0, game4);
+		serena.addGame(1, game5);
+		serena.addGame(2, game6);
+		
+		Player[]roster = {nana, jordyn, serena};
 		Team taro = new Team (roster, "Taro");
 		System.out.println(taro.getPlayerAtPos(2));
 		System.out.println(taro.toString());

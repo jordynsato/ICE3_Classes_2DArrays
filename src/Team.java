@@ -82,56 +82,59 @@ public class Team {
 	 * Team average for points mutator/access methods
 	 * calculations are done inside the mutator method
 	 */
-	public void setAvgPts() {
+	public double getTeamAvgPts() {
 		double teamAvgPts = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgPts+=players[i].getPlayerAvgPts();
 		}
 		teamAvgPts/=players.length;
 		teamAvgPts = (Math.round(teamAvgPts*100))/100.0;
+		return teamAvgPts;
 		//System.out.println(teamAvgPts);
 		
 	}
 	
-	public double getTeamAvgPts() {
-		setAvgPts();
-		return teamAvgPts;
-	}
+	//public double getTeamAvgPts() {
+	//	setAvgPts();
+	//	return teamAvgPts;
+	//}
 	
 	/*
 	 * Team average for rebounds mutator/access methods
 	 * calculations are done inside the mutator
 	 */
-	public void setAvgReb() {
+	public double getTeamAvgReb() {
 		double teamAvgReb = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgReb+=players[i].getPlayerAvgReb();
 		}
 		teamAvgReb/=players.length;
 		teamAvgReb = (Math.round(teamAvgReb*100))/100.0;
-	}
-	
-	public double getTeamAvgReb() {
-		setAvgReb();
 		return teamAvgReb;
 	}
+	
+	//public double getTeamAvgReb() {
+	//	setAvgReb();
+	//	return teamAvgReb;
+	//}
 	/*
 	 * Team average for assists mutator/access methods
 	 * calculations are done inside the mutator
 	 */
-	public void setAvgAst() {
+	public double getTeamAvgAst() {
 		double teamAvgAst = 0;
 		for(int i = 0; i < players.length; i++) {
 			teamAvgAst+=players[i].getPlayerAvgAst();
 		}
 		teamAvgAst/=players.length;
 		teamAvgAst = (Math.round(teamAvgAst*100.0))/100.0;
-	}
-	
-	public double getTeamAvgAst() {
-		setAvgAst();
 		return teamAvgAst;
 	}
+	
+	//public double getTeamAvgAst() {
+	//	setAvgAst();
+	//	return teamAvgAst;
+	//}
 	
 	/*
 	 * toString method for Team
@@ -142,10 +145,10 @@ public class Team {
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
 				+ getTeamAvgPts() +"\n\tReb: " + getTeamAvgReb() + "\n\tAst: "
 				+ getTeamAvgAst() +"\n";
-		//for (int i = 0; i< players.length; i++) {
-			//toString += players[i].toString() + "\n";
-		//}
-		toString = ""+ getTeamAvgPts();
+		for (int i = 0; i< players.length; i++) {
+			toString += players[i].toString() + "\n";
+		}
+		
 			return toString;
 	}
 }//end Team
