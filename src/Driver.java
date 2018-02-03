@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -7,7 +6,6 @@ import java.util.Scanner;
  * Last update: 2/2/18 at 3:33 PM
  *
  */
-
 public class Driver {
 
 	//Fields
