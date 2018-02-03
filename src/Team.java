@@ -125,11 +125,12 @@ public class Team {
 	/*
 	 * toString method for Team
 	 */
+
 	public String toString() {
 		String toString = "";
 		toString += "Team: "+ name + "\nTeam Size: "+ teamSize + "\nTeam Averages: \n\tPts: "
-				+ teamAvgPts +"\n\tReb: " + teamAvgReb + "\n\tAst: "
-				+teamAvgAst +"\n";
+				+ getTeamAvgPts() +"\n\tReb: " + getTeamAvgReb() + "\n\tAst: "
+				+ getTeamAvgAst() +"\n";
 		for (int i = 0; i< players.length; i++) {
 			toString += players[i].toString() + "\n";
 		}
