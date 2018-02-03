@@ -103,9 +103,9 @@ public class Player {
 	 * @param gameStats the Player's statistics for one game
 	 */
 	public void addGame(int gameNumber, int[] gameStats) {
-		stats[gameNumber][0] = gameStats[0];
-		stats[gameNumber][1] = gameStats[1];
-		stats[gameNumber][2] = gameStats[2];
+		stats[gameNumber][PTS_COL] = gameStats[0];
+		stats[gameNumber][REB_COL] = gameStats[1];
+		stats[gameNumber][AST_COL] = gameStats[2];
 	}
 	
 	/**
