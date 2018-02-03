@@ -3,27 +3,14 @@ import java.util.Scanner;
 /**
  * This class takes in user input to get a team's roster and each player's statistics.
  * 
- * Last update: 2/2/18 at 4:25 PM
- * @author Jordyn
+ * Last update: 2/2/18 at 5:38 PM
+ * @author Team Taro: Serena Ing, Nana Mimura, Jordyn Sato
  */
 public class Driver {
 
 	//Fields
 	private static Player[] roster;
-	
-	/**
-	 * This method adds a player to the roster.
-	 * 
-	 * @param scan A Scanner that will be used to print to the console.
-	 */
-	public static void addPlayer(Scanner scan, int index) {
-		String name;
-		System.out.println("Please enter in the name of the player: ");
-		name = scan.nextLine();
-		Player p = new Player(name);
-		roster[index] = p;
-	}
-	
+
 	/**
 	 * This method returns an int array of statistics for one player's game by asking for user input on points,
 	 * rebounds, and assists.
@@ -36,8 +23,8 @@ public class Driver {
 		boolean rerunPoints = true;
 		boolean rerunRebounds = true;
 		boolean rerunAssists = true;
-		scan.next();
-		
+		//scan.next();
+
 		//Checking for user input on points
 		do {
 			System.out.println("Points: ");
@@ -47,7 +34,7 @@ public class Driver {
 					points = scan.nextInt();
 					if(points < 0) {
 						System.out.println("A player can't have negative points!");
-						scan.next();
+						scan.nextLine();
 						continue;
 					}
 					stats[0] = points;
@@ -55,11 +42,11 @@ public class Driver {
 				}
 			} catch(Exception e) {
 				System.out.println("Please enter in a valid number.");
-				scan.next();
+				scan.nextLine();
 				continue;
 			}
 		} while(rerunPoints);
-		
+
 		//Checking for user input on rebounds
 		do {
 			System.out.println("Rebounds: ");
@@ -69,7 +56,7 @@ public class Driver {
 					rebounds = scan.nextInt();
 					if(rebounds < 0) {
 						System.out.println("A player can't have negative rebounds!");
-						scan.next();
+						scan.nextLine();
 						continue;
 					}
 					stats[1] = rebounds;
@@ -77,11 +64,11 @@ public class Driver {
 				}
 			} catch(Exception e) {
 				System.out.println("Please enter in a valid number.");
-				scan.next();
+				scan.nextLine();
 				continue;
 			}
 		} while(rerunRebounds);
-		
+
 		//Checking for user input on assists
 		do {
 			System.out.println("Assists: ");
@@ -91,7 +78,7 @@ public class Driver {
 					assists = scan.nextInt();
 					if(assists < 0) {
 						System.out.println("A player can't have negative assists!");
-						scan.next();
+						scan.nextLine();
 						continue;
 					}
 					stats[2] = assists;
@@ -99,59 +86,68 @@ public class Driver {
 				}
 			} catch(Exception e) {
 				System.out.println("Please enter in a valid number.");
-				scan.next();
+				scan.nextLine();
 				continue;
 			}
 		} while(rerunAssists);
-		
+
 		return stats;
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		boolean rerunFlag = true;
 		Team t;
 		System.out.println("Welcome to MaxPreps!");
-		
+
+		//Gets the name for the team.
+		System.out.println("What is the team name?");
+		String teamName = scan.next();
+
 		do {
 			int maxRoster = 0;
 			
-			//Gets the name for the team.
-			System.out.println("What is the team name?");
-			String teamName = scan.next();
-			
 			//Asks and validates the user input on how many players are on the team.
-			System.out.println("How many players are on the roster?");
 			try {
+				System.out.println("How many players are on the roster?");
 				if(scan.hasNextLine()) {
 					maxRoster = scan.nextInt();
 					if(maxRoster != 6 && maxRoster != 7) {
 						System.out.println("You can only have 6 or 7 players on your team, please try again.");
-						scan.next();
+						scan.nextLine();
 						continue;
 					}
 					roster = new Player[maxRoster];
 				}
 			} catch(Exception e) {
 				System.out.println("Please enter in a valid number of players.");
-				scan.next();
+				scan.nextLine();
 				continue;
 			}
-			
-			//First for loop that cycles through each player to get their name.
+
+			//For loop that cycles through each player to get their name.
 			for(int p = 0; p < maxRoster; p++) {
-				addPlayer(scan, p);
-				//Second inner for loop that cycles through 3 games to add to each player for stats.
-				for(int g = 0; g < 3 && scan.hasNext(); g++) {
-					System.out.println("Please enter in the statistics for each player for the next 3 games.");
-					roster[p].addGame(g, addStats(scan));
+				System.out.printf("Please enter in player %d's name: \n", (p+1));
+				String name = scan.next();
+				Player player = new Player(name);
+				roster[p] = player;
+			}
+
+			//For loop that cycles through each player to get stats for 3 games.
+			for(Player p : roster) {
+				for(int g = 0; g < 3; g++) {
+					System.out.println("Please enter in the statistics of each player's game.");
+					System.out.printf("Stats for game " + (g + 1) + " for %s:\n", p.getName());
+					int[] stats = addStats(scan);
+					p.addGame(g, stats);
 				}
 			}
+
 			t = new Team(roster, teamName);
-			
+
 			//Prints out each player's and team's statistics.
 			System.out.println(t.toString());
-			
+
 			//Checks to see if the user wants to rerun the program with a new team.
 			System.out.println("Would you like to make another team? (Y/N)");
 			String response = scan.next();
